@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255)
+}
+
+#intro-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#bg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+#bg img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    transition: transform 3s cubic-bezier(0.25, 1.5, 0.5, 1);
+}
+
+/* 확대 애니메이션 */
+#bg.expand img {
+    transform: translate(-50%, -50%) scale(8);
+}
+
+/* ----- 글씨 고정용 틀 -----
+   배경(object-fit: cover)과 똑같이 화면을 덮도록 커지고 줄어드는 상자.
+   글씨를 이 안에 % 단위로 두면, 브라우저 비율이 바뀌어도 모니터 위 같은 자리에 머묾 */
+:root {
+    --bg-ratio: 1.7778;   /* 배경 이미지 가로/세로 비율 (JS가 실제 이미지 크기로 자동 설정) */
+}
+
+.stage {
+    position: absolute;
+    top: 50%;             /* #bg img 의 top 과 같아야 함 */
+    left: 50%;
+    width: max(100vw, calc(100vh * var(--bg-ratio)));
+    height: max(100vh, calc(100vw / var(--bg-ratio)));
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* 텍스트 레이어 */
+h1 {
+    /* 글씨 위치: 배경 이미지 높이 기준 % (숫자가 작을수록 위로) */
+    --text-y: 40%;
+    position: absolute;
+    width: 100%;
+    top: var(--text-y);
+    margin-top: -5%;
+    left: 50%;
+    text-align: center;
+    color: #30383e;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    transition: transform 3s cubic-bezier(0.25, 1.5, 0.5, 1), top 1s ease-in-out, color 0.4s ease;
+}
+
+h1.expand {
+    transform: scale(12);
+}
+
+h1.hovered {
+    color: #d94a4a;
+    transform: translate(-50%, -50%) scale(1.05);
+    transition: transform 0.8s, color 0.4s ease;
+}
+
+h1 span.color-change {
+    color: #d94a4a;
+}
+
+h1 span {
+    transition: opacity 2s ease, color 0.4s ease;
+}
+
+h1.fade-text span {
+    opacity: 0;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ----- Hello! 손글씨 애니메이션 ----- */
+.hello-wrap {
+    display: block;
+}
+
+.hello {
+    --line-gap: 90px;
+    --text-width: 60%;
+    display: block;
+    width: min(var(--text-width), 92vw);
+    height: auto;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+/* .hello-line1 {
+    color: #d94a4a;
+} */
+
+.hello-line2 {
+    transform: translateY(var(--line-gap));
+    /* color: #d94a4a; */
+}
+
+/* 글씨 색 = h1 색 (hover 시 빨간색으로 바뀌는 것도 그대로 적용) */
+.hello-text {
+    fill: currentColor;
+}
+
+/* 펜 선: 각 선의 속도·순서는 HTML의 style(animation-duration / delay)에 들어 있음 */
+.hello-pen path {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 14;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    /* 선(1) + 빈칸(2): 빈칸을 선보다 길게 해야 시작 전에 둥근 끝 점이 보이지 않음 */
+    stroke-dasharray: 1 2;
+    stroke-dashoffset: 1;
+    animation-name: hello-write;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hello-write {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* 버튼 */
+#start-btn {
+    width: 120px;
+    height: 45px;
+    line-height: 45px;
+    position: absolute;
+    left: 50%;
+    /* 버튼 위치: 배경 이미지 높이 기준 % (글씨처럼 모니터에 고정됨) */
+    top: 80%;
+    transform: translateX(-50%);
+    pointer-events: auto;
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: "Urbanist", sans-serif;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    box-shadow: -3px 5px 10px #30383e3d;
+    background: linear-gradient(to bottom, #30383e 50%, #d94a4a 50%);
+    background-size: 100% 200%;
+    background-position: top;
+    transition: background-position 0.4s ease, color 0.3s ease;
+    z-index: 1;
+}
+
+#start-btn a {
+    color: #fff;
+}
+
+#start-btn:hover {
+    background-position: bottom;
+    color: #fff;
+}
+
+/* 글씨가 다 써진 뒤: 커졌다 작아졌다 반복하며 클릭 유도 */
+#start-btn.pulse {
+    animation: btn-pulse 1.4s ease-in-out infinite;
+}
+
+/* 마우스를 올리면 멈추고 원래 크기로 */
+#start-btn.pulse:hover {
+    animation: none;
+}
+
+@keyframes btn-pulse {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+
+/* 움직임 줄이기 설정을 켠 사용자에게는 바로 완성된 글씨를 보여줌 */
+@media (prefers-reduced-motion: reduce) {
+    .hello-pen path {
+        animation: none;
+        stroke-dashoffset: 0;
+    }
+
+    #start-btn.pulse {
+        animation: none;
+    }
+}

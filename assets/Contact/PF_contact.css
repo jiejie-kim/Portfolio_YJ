@@ -1,0 +1,668 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#wrap {
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255)
+}
+
+img {
+    vertical-align: top;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+
+    font-family: "learning-curve", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    font-family: "Urbanist", sans-serif;
+    font-size: 14px;
+    background-color: #fff;
+    /* cursor: url('../images/won.png')4 4, auto; */
+}
+
+/* .my-element {
+    cursor: url('../images/won.png'), auto;
+} */
+
+header {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 550px;
+    border-radius: 50px;
+    background-color: #d94a4a;
+    position: relative;
+}
+
+h1 {
+    font-family: "Urbanist", sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    margin-left: 60px;
+    position: fixed;
+    cursor: pointer;
+    margin-top: 8px;
+    z-index: 102;
+}
+
+h1 a {
+    color: #d94a4a;
+}
+
+/* ----- 상단메뉴 ----- */
+nav ul {
+    width: 88%;
+    height: 54px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    cursor: pointer;
+}
+
+nav li {
+    perspective: 1000px;
+}
+
+#wrap nav ul li span {
+    font-family: "Urbanist", sans-serif;
+    font-weight: 500;
+}
+
+.flip-vert-inner {
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 2em;
+    transform-style: preserve-3d;
+    transition: 0.6s ease;
+    text-decoration: none;
+}
+
+nav li:hover .flip-vert-inner {
+    transform: rotateX(180deg);
+    cursor: pointer;
+}
+
+/* 앞/뒷 공통 설정 */
+.flip-vert-front,
+.flip-vert-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.flip-vert-back {
+    transform: rotateX(180deg);
+}
+
+.opacity .flip-vert-inner span {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+#up_btn {
+    position: fixed;
+    right: 60px;
+    bottom: 50px;
+    cursor: pointer;
+    z-index: 100;
+    display: none;
+}
+
+#up_btn img {
+    width: 40px;
+}
+
+@media (min-width: 481px) and (max-width: 800px) {
+    header {
+        width: 90%;
+        position: fixed;
+        top: 3%;
+        left: 50%;
+        margin-left: -45%;
+        z-index: 102;
+    }
+
+    h1 {
+        width: 100%;
+        height: 100px;
+        top: 0;
+        background-color: #fff;
+        margin: 0 auto;
+        text-align: center;
+        padding: 3%;
+    }
+
+    #menu_btn {
+        display: none;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    nav li {
+        width: 24%;
+    }
+
+    .flip-vert-inner {
+        width: auto;
+    }
+
+    #menu_btn img {
+        display: none;
+    }
+
+    .flip-vert-front,
+    .flip-vert-back {
+        font-size: 16px;
+    }
+}
+
+/* ----- 텍스트 배너 ----- */
+#banner {
+    height: 280px;
+}
+
+#banner h2 {
+    font-family: "learning-curve", sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 110px;
+    font-size: 80px;
+    color: #30383e;
+}
+
+#p-txt ul {
+    width: 30%;
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-around;
+    color: #30383e;
+    z-index: 100;
+}
+
+#p-txt ul li {
+    margin: 0 auto;
+    margin-top: 3%;
+}
+
+#p-txt ul li span {
+    font-size: 14px;
+}
+
+.call-button {
+    color: #30383e;
+}
+
+.call-button:hover {
+    color: #d94a4a;
+}
+
+.mail-button {
+    color: #30383e;
+}
+
+.mail-button:hover {
+    color: #d94a4a;
+}
+
+#connect-size #m-img {
+    position: absolute;
+    top: 17%;
+    left: 8%;
+}
+
+#connect-size #m-img img {
+    width: 70%;
+}
+
+@media (min-width: 481px) and (max-width: 800px) {
+    #banner {
+        margin-top: 200px;
+        height: 300px;
+    }
+
+    #banner h2 {
+        font-size: 60px;
+        text-align: right;
+        padding-right: 10%;
+    }
+
+    #p-txt ul {
+        width: 50%;
+        margin-left: 40%;
+        margin-top: 12%;
+        font-size: 16px;
+        font-weight: 400;
+        display: block;
+    }
+
+    #connect-size #m-img {
+        left: 2%;
+        top: 30%;
+    }
+    #connect-size #m-img img {
+        width: 60%;
+    }
+}
+
+@media (min-width:801px) and (max-width: 1400px) {
+    #p-txt ul {
+        width: 40%;
+        margin: 0 auto;
+        font-size: 16px;
+        font-weight: 400;
+        display: flex;
+        justify-content: space-around;
+        color: #30383e;
+        z-index: 100;
+    }
+
+    #p-txt ul li {
+        margin: 0 auto;
+        margin-top: 3%;
+    }
+
+    #connect-size #m-img {
+        position: absolute;
+        top: 17%;
+        left: 3%;
+    }
+}
+
+#red-bg {
+    width: 100%;
+    height: 45vh;
+    background-color: #d94a4a;
+}
+
+#email-size {
+    width: 55%;
+    padding-top: 2%;
+    margin-left: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#left-text {
+    float: 1 1 50%;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: normal;
+    margin-right: 3%;
+}
+
+#download-btn { 
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#download-btn:hover{
+    background-color: #f5f5f5;
+    color: #d94a4a;
+    font-weight: 500;
+}
+
+#download-btn:hover a{
+    background-color: #f5f5f5;
+    color: #d94a4a;
+    font-weight: 500;
+}
+
+#download-btn a:hover{
+    color: #d94a4a;
+    font-weight: 500;
+}
+
+#contact-form {
+    flex: 1 1 50%;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+}
+
+#contact-form ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 15px;
+}
+
+#contact-form ul li {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-form h3 {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+#contact-form input,
+#contact-form textarea {
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #e55f5f;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+}
+
+input:focus,
+textarea:focus,
+input:valid,
+textarea:valid {
+    outline: none;
+    border: none;
+    direction: none;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    -webkit-text-fill-color: white !important;
+    background-color: transparent !important;
+    transition: background-color 0s ease-in-out 9999s !important;
+}
+
+#contact-form textarea {
+    height: 60px;
+    resize: none;
+}
+
+#contact-form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 1px solid white;
+    background-color: #d94a4a;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#contact-form button:hover {
+    background-color: #fff;
+    color: #d94a4a;
+}
+
+@media (min-width: 481px) and (max-width: 800px) {
+    #left-text {
+        width: 80%;
+        display: block;
+        margin-left: 25%;
+        margin-top: 2%;
+    }
+
+    #email-size {
+        display: block;
+    }
+
+    #contact-form {
+        width: 100%;
+        max-width: 1000px;
+        display: flex;
+        margin-top: 20%;
+        margin-left: 15%;
+    }
+
+    #red-bg {
+        width: 100%;
+        height: 100vh;
+        background-color: #d94a4a;
+    }
+
+
+}
+
+@media (min-width:801px) and (max-width: 1400px) {
+    #left-text {
+        width: 50%;
+    }
+
+    #email-size {
+        margin-left: 30% auto;
+    }
+
+    #contact-form {
+        max-width: 90%;
+        display: flex;
+
+    }
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay {
+    transition-delay: 0.3s;
+}
+
+/* .footer {
+    clear: both;
+    width: 100%;
+    height: 90px;
+    line-height: 70px;
+    background-color: #d94a4a;
+    font-family: "Urbanist", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #f8f5f2;
+} */
+
+/* =====================================================
+   CONTACT 레이아웃 정리
+   - 사진이 빨간 띠 윗선에 "앉아 있는" 모양으로 고정
+   - 브라우저 확대/축소(100%, 80%)나 화면 비율이 바뀌어도
+     사진과 빨간 띠의 관계가 그대로 유지됨
+   ===================================================== */
+
+body {
+    background-color: #fff;
+}
+
+/* 연락처 줄 */
+#p-txt ul {
+    width: auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 48px;
+}
+
+#p-txt ul li {
+    margin: 0;
+}
+
+#banner {
+    height: auto;
+    /* 제목·연락처는 화면 가운데 */
+    padding: 0 20px 150px;
+    position: relative;
+    z-index: 3;
+}
+
+/* 빨간 띠 */
+#red-bg {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    padding: 0 0 100px;
+}
+
+.contact-inner {
+    /* 사진 크기와, 사진의 몇 % 높이가 빨간 띠 위로 올라올지 */
+    --photo-w: 260px;
+    --seat: 60%;
+
+    position: relative;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 64px clamp(20px, 4vw, 48px) 0;
+    min-height: calc(var(--photo-w) * 0.95);
+}
+
+/* 사진: 빨간 띠 윗선(= .contact-inner 맨 위)에 걸쳐 앉음 */
+#connect-size #m-img,
+#m-img {
+    position: absolute;
+    top: 0;
+    left: clamp(20px, 4vw, 48px);
+    width: var(--photo-w);
+    margin: 0;
+    transform: translateY(calc(var(--seat) * -1));
+    pointer-events: none;
+    z-index: 2;
+}
+
+#connect-size #m-img img,
+#m-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* 글과 폼은 사진 오른쪽 */
+#email-size {
+    width: auto;
+    margin: 0 0 0 calc(var(--photo-w) + 6%);
+    padding-top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4%;
+}
+
+#left-text {
+    flex: 1 1 45%;
+    width: auto;
+    margin: 0;
+}
+
+#contact-form {
+    flex: 1 1 50%;
+    max-width: none;
+    width: auto;
+    margin: 0;
+}
+
+#contact-form textarea {
+    height: 110px;
+}
+
+/* 노트북 화면 */
+@media (min-width: 801px) and (max-width: 1100px) {
+    #banner {
+        padding-left: 220px;   /* 화면이 좁을 땐 사진과 겹치지 않게 살짝 오른쪽 */
+    }
+
+    .contact-inner {
+        --photo-w: 210px;
+    }
+
+    #email-size {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    #left-text,
+    #contact-form {
+        width: 100%;
+    }
+}
+
+/* 태블릿 */
+@media (min-width: 481px) and (max-width: 800px) {
+    #banner {
+        margin-top: 160px;
+        padding: 0 20px 260px;
+    }
+
+    #banner h2 {
+        text-align: center;
+        padding-right: 0;
+    }
+
+    #p-txt ul {
+        width: auto;
+        margin: 0 auto;
+        display: flex;
+    }
+
+    .contact-inner {
+        --photo-w: 180px;
+    }
+
+    #email-size {
+        display: flex;
+        flex-direction: column;
+        margin-left: calc(var(--photo-w) + 32px);
+        gap: 40px;
+    }
+
+    #left-text,
+    #contact-form {
+        width: 100%;
+        margin: 0;
+    }
+}

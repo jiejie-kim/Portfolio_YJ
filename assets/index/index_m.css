@@ -1,0 +1,37 @@
+@media (min-width: 320px) and (max-width: 480px) {
+
+    #bg img {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        transition: transform 3s cubic-bezier(0.25, 1.5, 0.5, 1);
+    }
+
+    /* 확대 애니메이션 */
+    #bg.expand img {
+        transform: translate(-50%, -50%) scale(8);
+    }
+
+    /* 글씨 틀도 배경과 같이 40% 위치로 (위 #bg img 의 top 과 같아야 함) */
+    .stage {
+        top: 40%;
+    }
+
+    h1{
+        margin-top: 3%;
+    }
+
+    .hello{
+        --line-gap: 0;
+    }
+
+    /* 버튼 */
+    #start-btn {
+        top: 75%;
+    }
+}

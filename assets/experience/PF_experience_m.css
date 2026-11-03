@@ -1,0 +1,166 @@
+@media (min-width: 320px) and (max-width: 480px) {
+
+	html,
+	body {
+		overflow-x: hidden;
+	}
+
+	/* ----- 상단: 로고 + 메뉴 (화면 위에 고정) ----- */
+	h1 {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 108px;
+		margin: 0;
+		padding-top: 14px;
+		text-align: center;
+		background-color: rgba(240, 240, 240, 0.94);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		z-index: 101;
+	}
+
+	h1 a {
+		font-size: 20px;
+	}
+
+	header {
+		position: fixed;
+		top: 52px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: calc(100% - 28px);
+		max-width: 420px;
+		margin: 0;
+		z-index: 102;
+	}
+
+	nav ul {
+		width: 100%;
+		height: 44px;
+		padding: 0 6px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0;
+	}
+
+	nav li {
+		flex: 1;
+		display: flex;
+		justify-content: center;
+	}
+
+	.flip-vert-inner {
+		width: 100%;
+		height: 2em;
+	}
+
+	.flip-vert-front,
+	.flip-vert-back {
+		font-size: 12px;
+		letter-spacing: 0.01em;
+	}
+
+	#up_btn {
+		right: 20px;
+		bottom: 24px;
+	}
+
+	/* ----- 인트로 ----- */
+	#xp-intro {
+		margin-top: 140px;
+	}
+
+	.hw-svg {
+		width: 88vw;
+	}
+
+	.xp-legend {
+		margin-top: 28px;
+		gap: 6px 14px;
+		font-size: 11px;
+	}
+
+	/* ----- 타임라인: 선은 왼쪽, 내용은 한 줄 ----- */
+	.xp-timeline {
+		margin-top: 24px;
+		padding: 0 18px 72px;
+	}
+
+	.xp-line {
+		left: 26px;
+		bottom: 72px;
+	}
+
+	.xp-year {
+		display: block;
+		padding: 36px 0 36px 32px;
+	}
+
+	.xp-year::before {
+		left: 9px;
+		top: 42px;
+		width: 14px;
+		height: 14px;
+		margin-left: 0;
+		box-shadow: 0 0 0 5px #f0f0f0;
+	}
+
+	.xp-year.text-left .xp-text,
+	.xp-year.text-right .xp-text {
+		text-align: left;
+	}
+
+	.xp-year.text-left .xp-text ul li {
+		flex-direction: row;
+		text-align: left;
+	}
+
+	.xp-text h3 {
+		font-size: 38px;
+	}
+
+	.xp-roles {
+		margin: 12px 0;
+		font-size: 14px;
+	}
+
+	.xp-text ul li {
+		padding: 8px 0;
+		font-size: 13px;
+	}
+
+	/* 사진: 두 장씩 나란히 */
+	.xp-photos {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 14px 10px;
+		margin-top: 20px;
+	}
+
+	.xp-photos:empty {
+		display: none;
+	}
+
+	.xp-photos figure,
+	.xp-photos figure:nth-child(even) {
+		width: 100%;
+		margin-left: 0;
+	}
+
+	.xp-photos img {
+		border-radius: 12px;
+	}
+
+	.xp-photos figcaption {
+		font-size: 11px;
+	}
+
+	.footer {
+		height: 50px;
+		line-height: 50px;
+		font-size: 14px;
+	}
+}

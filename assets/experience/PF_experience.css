@@ -1,0 +1,566 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#wrap {
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255)
+}
+
+img {
+    vertical-align: top;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: "Urbanist", sans-serif;
+    font-size: 14px;
+    background-color: #f0f0f0;
+    cursor: url('../images/won.png')4 4, auto;
+}
+
+.my-element {
+    cursor: url('../images/won.png'), auto;
+}
+
+header {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 550px;
+    border-radius: 50px;
+    background-color: #d94a4a;
+    position: relative;
+}
+
+h1 {
+    font-family: "Urbanist", sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    margin-left: 60px;
+    position: fixed;
+    cursor: pointer;
+    margin-top: 8px;
+    z-index: 102;
+}
+
+h1 a {
+    color: #d94a4a;
+}
+
+
+/* ----- 상단메뉴 ----- */
+nav ul {
+    width: 88%;
+    height: 54px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    cursor: pointer;
+}
+
+nav li {
+    perspective: 1000px;
+}
+
+#wrap nav ul li span {
+    font-family: "Urbanist", sans-serif;
+    font-weight: 500;
+}
+
+.flip-vert-inner {
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 1.5em;
+    transform-style: preserve-3d;
+    transition: 0.6s ease;
+    text-decoration: none;
+}
+
+nav li:hover .flip-vert-inner {
+    transform: rotateX(180deg);
+    cursor: pointer;
+}
+
+
+/* 앞/뒷 공통 설정 */
+.flip-vert-front,
+.flip-vert-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.flip-vert-back {
+    transform: rotateX(180deg);
+}
+
+.opacity .flip-vert-inner span {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+#menu_btn {
+    position: fixed;
+    right: 60px;
+    margin-top: -50px;
+    cursor: pointer;
+    z-index: 100;
+    display: none;
+}
+
+#menu_btn img {
+    width: 40px;
+    cursor: pointer;
+}
+
+#up_btn {
+    position: fixed;
+    right: 60px;
+    bottom: 50px;
+    cursor: pointer;
+    z-index: 100;
+    display: none;
+}
+
+#up_btn img {
+    width: 40px;
+}
+
+@media (min-width: 481px) and (max-width: 800px) {
+    header {
+        width: 90%;
+        position: fixed;
+        top: 3%;
+        left: 50%;
+        margin-left: -45%;
+        z-index: 102;
+    }
+
+    h1 {
+        width: 100%;
+        height: 100px;
+        top: 0;
+        background-color: #fff;
+        margin: 0 auto;
+        text-align: center;
+        padding: 3%;
+    }
+
+    #menu_btn {
+        display: none;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    nav li {
+        width: 24%;
+    }
+
+    .flip-vert-inner {
+        width: auto;
+    }
+
+    #menu_btn img {
+        display: none;
+    }
+
+    .flip-vert-front,
+    .flip-vert-back {
+        font-size: 16px;
+    }
+}
+
+/* ----- 텍스트 배너 ----- */
+#banner {
+    width: 100%;
+}
+
+#banner h2 {
+    /* font-family: "Urbanist", sans-serif; */
+    font-family: "learning-curve", sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    text-align: center;
+    font-size: 80px;
+    color: #30383e;
+    letter-spacing: 2px;
+    display: block;
+    margin-top: 5%;
+    /* text-shadow: 30px 50px 5px rgba(112, 97, 97, 0.1); */
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* dd는 살짝 늦게 보이게 딜레이 설정 */
+.delay {
+    transition-delay: 0.3s;
+}
+
+@media (min-width: 481px) and (max-width: 800px) {
+    #banner {
+        margin-top: 200px;
+        height: 250px;
+    }
+
+    #banner h2 {
+        font-size: 60px;
+    }
+}
+
+
+/* =====================================================
+   EXPERIENCE : 가운데 선 + 좌우 지그재그 타임라인
+   ===================================================== */
+
+/* ----- 인트로: 손글씨 제목 (Step by step, / My Journey :)) ----- */
+#xp-intro {
+    margin: 64px auto 0;      /* WORK 페이지와 같은 위치 */
+    padding: 0 20px;
+    text-align: center;
+}
+
+.hw-title {
+    margin: 0;
+    line-height: 0;
+    color: #30383e;
+}
+
+.hw-svg {
+    /* 행간: 0 = 기본, 클수록 두 줄 사이가 벌어짐 */
+    --line-gap: 0px;
+
+    display: block;
+    width: min(590px, 78vw);  /* WORK 제목과 같은 글씨 크기 */
+    height: auto;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.hw-line2 {
+    transform: translateY(var(--line-gap));
+}
+
+.hw-text {
+    fill: currentColor;
+}
+
+.hw-pen path {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 22;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1 2;
+    stroke-dashoffset: 1;
+    animation-name: hw-write;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hw-write {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ----- 분류 범례 ----- */
+.xp-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 22px;
+    max-width: 1100px;
+    margin: 48px auto 0;
+    padding: 0 20px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 13px;
+    color: #6b7176;
+}
+
+.xp-legend li {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 분류별 색 점 (범례와 목록 공통) */
+[data-cat] > i {
+    flex: 0 0 auto;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #8a8f94;
+}
+
+[data-cat="kiosk"] > i { background: #7a6aae; }
+[data-cat="fair"]  > i { background: #59606b; }
+[data-cat="trip"]  > i { background: #d94a4a; }
+[data-cat="edit"]  > i { background: #c08a3e; }
+[data-cat="page"]  > i { background: #3e9c92; }
+[data-cat="web"]   > i { background: #4e68a8; }
+
+/* ----- 타임라인 ----- */
+.xp-timeline {
+    position: relative;
+    max-width: 1240px;
+    margin: 40px auto 0;
+    padding: 0 clamp(20px, 4vw, 48px) 120px;
+}
+
+/* 가운데 세로선 + 스크롤에 따라 빨갛게 차오르는 선 */
+.xp-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 120px;
+    width: 2px;
+    margin-left: -1px;
+    background: #d8dadd;
+}
+
+.xp-line-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: var(--progress, 0%);
+    background: #d94a4a;
+}
+
+.xp-year {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 96px;
+    padding: 64px 0;
+}
+
+/* 연도 점 */
+.xp-year::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 72px;
+    width: 18px;
+    height: 18px;
+    margin-left: -9px;
+    border-radius: 50%;
+    background: #c9cdd1;
+    box-shadow: 0 0 0 6px #f0f0f0;
+    transition: background 0.4s ease, transform 0.4s ease;
+    z-index: 1;
+}
+
+.xp-year.reached::before {
+    background: #d94a4a;
+    transform: scale(1.15);
+}
+
+/* 지그재그: 글은 왼쪽 → 다음 해는 오른쪽 */
+.xp-year.text-left .xp-text {
+    grid-column: 1;
+    text-align: right;
+}
+
+.xp-year.text-left .xp-photos {
+    grid-column: 2;
+}
+
+.xp-year.text-right .xp-text {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.xp-year.text-right .xp-photos {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.xp-text h3 {
+    font-family: "Urbanist", sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 1;
+    color: #d94a4a;
+}
+
+.xp-count {
+    margin-top: 8px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 13px;
+    color: #6b7176;
+}
+
+.xp-roles {
+    margin: 18px 0 18px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: -0.02em;
+    color: #30383e;
+    word-break: keep-all;
+}
+
+.xp-text ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid #e2e3e5;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #30383e;
+    word-break: keep-all;
+}
+
+/* 오른쪽 정렬일 때는 점이 글 뒤로 */
+.xp-year.text-left .xp-text ul li {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    text-align: right;
+}
+
+/* ----- 비하인드 사진 ----- */
+.xp-photos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 6px;
+}
+
+.xp-photos figure {
+    width: calc(100% - 48px);
+}
+
+.xp-photos figure:nth-child(even) {
+    margin-left: 48px;
+}
+
+.xp-photos img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 18px;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.xp-photos figure:hover img {
+    transform: scale(1.02) rotate(-0.6deg);
+}
+
+.xp-photos figcaption {
+    padding-top: 10px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #6b7176;
+    word-break: keep-all;
+}
+
+.xp-photos figcaption b {
+    font-weight: 700;
+    color: #30383e;
+}
+
+/* ----- 스크롤하면 떠오르기 ----- */
+.xp-text,
+.xp-photos figure {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.xp-photos figure:nth-child(2) { transition-delay: 0.12s; }
+.xp-photos figure:nth-child(3) { transition-delay: 0.24s; }
+
+.xp-year.in .xp-text,
+.xp-year.in .xp-photos figure {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ----- 태블릿 ----- */
+@media (min-width: 481px) and (max-width: 900px) {
+    #xp-intro { margin-top: 180px; }
+    .xp-year { column-gap: 56px; }
+    .xp-text h3 { font-size: 44px; }
+    .xp-photos figure { width: 100%; }
+    .xp-photos figure:nth-child(even) { margin-left: 0; }
+}
+
+/* ----- 움직임 줄이기 ----- */
+@media (prefers-reduced-motion: reduce) {
+    .hw-pen path { animation: none; stroke-dashoffset: 0; }
+    .xp-text, .xp-photos figure { opacity: 1; transform: none; transition: none; }
+}
+
+/* ----- 푸터 ----- */
+.footer {
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    background-color: #d94a4a;
+    font-family: "Urbanist", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #f8f5f2;
+    clear: both;
+}

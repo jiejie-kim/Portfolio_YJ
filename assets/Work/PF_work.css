@@ -1,0 +1,1145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#wrap {
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255)
+}
+
+img {
+    vertical-align: top;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: "Urbanist", sans-serif;
+    font-size: 14px;
+    background-color: #f0f0f0;
+    cursor: url('../images/won.png')4 4, auto;
+}
+
+.my-element {
+    cursor: url('../images/won.png'), auto;
+}
+
+header {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 550px;
+    border-radius: 50px;
+    background-color: #d94a4a;
+    position: relative;
+}
+
+h1 {
+    font-family: "Urbanist", sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    margin-left: 60px;
+    position: fixed;
+    cursor: pointer;
+    margin-top: 8px;
+    z-index: 102;
+}
+
+h1 a {
+    color: #d94a4a;
+}
+
+
+/* ----- 상단메뉴 ----- */
+nav ul {
+    width: 88%;
+    height: 54px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    cursor: pointer;
+}
+
+nav li {
+    perspective: 1000px;
+}
+
+#wrap nav ul li span {
+    font-family: "Urbanist", sans-serif;
+    font-weight: 500;
+}
+
+.flip-vert-inner {
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 1.5em;
+    transform-style: preserve-3d;
+    transition: 0.6s ease;
+    text-decoration: none;
+}
+
+nav li:hover .flip-vert-inner {
+    transform: rotateX(180deg);
+    cursor: pointer;
+}
+
+
+/* 앞/뒷 공통 설정 */
+.flip-vert-front,
+.flip-vert-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.flip-vert-back {
+    transform: rotateX(180deg);
+}
+
+.opacity .flip-vert-inner span {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+#menu_btn {
+    position: fixed;
+    right: 60px;
+    margin-top: -50px;
+    cursor: pointer;
+    z-index: 100;
+    display: none;
+}
+
+#menu_btn img {
+    width: 40px;
+    cursor: pointer;
+}
+
+#up_btn {
+    position: fixed;
+    right: 60px;
+    bottom: 50px;
+    cursor: pointer;
+    z-index: 100;
+    display: none;
+}
+
+#up_btn img {
+    width: 40px;
+}
+
+@media (min-width: 481px) and (max-width: 800px) {
+    header {
+        width: 90%;
+        position: fixed;
+        top: 3%;
+        left: 50%;
+        margin-left: -45%;
+        z-index: 102;
+    }
+
+    h1 {
+        width: 100%;
+        height: 100px;
+        top: 0;
+        background-color: #fff;
+        margin: 0 auto;
+        text-align: center;
+        padding: 3%;
+    }
+
+    #menu_btn {
+        display: none;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    nav li {
+        width: 24%;
+    }
+
+    .flip-vert-inner {
+        width: auto;
+    }
+
+    #menu_btn img {
+        display: none;
+    }
+
+    .flip-vert-front,
+    .flip-vert-back {
+        font-size: 16px;
+    }
+}
+
+/* ----- 텍스트 배너 ----- */
+#banner {
+    width: 100%;
+}
+
+#banner h2 {
+    /* font-family: "Urbanist", sans-serif; */
+    font-family: "learning-curve", sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    text-align: center;
+    font-size: 80px;
+    color: #30383e;
+    letter-spacing: 2px;
+    display: block;
+    margin-top: 5%;
+    /* text-shadow: 30px 50px 5px rgba(112, 97, 97, 0.1); */
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* dd는 살짝 늦게 보이게 딜레이 설정 */
+.delay {
+    transition-delay: 0.3s;
+}
+
+@media (min-width: 481px) and (max-width: 800px) {
+    #banner {
+        margin-top: 200px;
+        height: 250px;
+    }
+
+    #banner h2 {
+        font-size: 60px;
+    }
+}
+
+/* ----- 맥 창 버튼 ----- */
+.mac-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: 5px;
+}
+
+.mac-buttons .btn {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+.btn {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.btn.red {
+    background-color: #ff5f57;
+    cursor: pointer;
+}
+
+.btn.yellow {
+    background-color: #ffbd2e;
+    cursor: pointer;
+}
+
+.btn.green {
+    background-color: #28c940;
+    cursor: pointer;
+}
+
+.btn::before {
+    content: "";
+    color: white;
+    font-size: 10px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.btn.red:hover::before {
+    color: #30383e;
+    content: "✕";
+    opacity: 1;
+}
+
+.btn.yellow:hover::before {
+    color: #30383e;
+    content: "-";
+    opacity: 1;
+    font-size: 20px;
+}
+
+.btn.green:hover::before {
+    color: #30383e;
+    content: "⤢";
+    font-size: 20px;
+    opacity: 1;
+}
+
+/* 최소화 상태일 때 회색으로 보이게 */
+.modal-contents.minimized .btn.yellow {
+    background-color: #ccc;
+}
+
+/* 비활성화 상태인 노란 버튼 스타일 */
+.btn.yellow:disabled,
+.btn.yellow.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.modal-title {
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: 16px;
+}
+
+.modal-body {
+    font-size: 14px;
+    color: #333;
+    height: 100%;
+    overflow-y: auto;
+}
+
+
+/* ----- 상세 내용 ----- */
+.content-inner {
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+.content-inner h2 {
+    display: inline-block;
+    margin-top: 5%;
+    margin-left: 5%;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 33px;
+    color: #30383e;
+}
+
+.content-inner img {
+    width: 100%;
+    /* width: 90%;
+    margin-left: 5%; */
+}
+
+.content-inner .p-1 img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.content-inner ul {
+    margin: 10% 3%;
+    font-size: 16px;
+    color: #30383e;
+    font-weight: 600;
+    flex-direction: column;
+    display: flex;
+    line-height: 25px;
+}
+
+.content-inner ul li {
+    margin-left: 2%;
+    display: inline-block;
+    line-height: 24px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.content-inner ul b {
+    display: block;
+    width: 10%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.content-inner ul li span {
+    width: 85%;
+    font-weight: 400;
+    display: inline-block;
+    align-items: flex-start;
+}
+
+.content-inner ul li g {
+    font-size: 14px;
+    color: gray;
+}
+
+/* .content-inner .p-2 {
+    width: 50%;
+    float: left;
+}
+
+.content-inner .p-3 {
+    width: 50%;
+    float: left;
+} */
+
+.content-inner h3 {
+    font-size: 30px;
+}
+
+.content-inner .p-4 {
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+
+/* =====================================================
+   WORK (PROJECTS + WORK 통합)
+   ===================================================== */
+
+/* ----- 인트로 ----- */
+#work-intro {
+    max-width: 1240px;
+    margin: 64px auto 0;
+    padding: 0 clamp(20px, 4vw, 48px);
+}
+
+/* 손글씨 제목: Let me show you! / my Work :) */
+.hw-title {
+    margin: 0;
+    line-height: 0;
+    color: #30383e;
+}
+
+.hw-svg {
+    /* 행간: 0 = 기본, 클수록 두 줄 사이가 벌어짐 */
+    --line-gap: 0px;
+
+    display: block;
+    width: min(620px, 80vw);
+    height: auto;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.hw-line2 {
+    transform: translateY(var(--line-gap));
+}
+
+.hw-text {
+    fill: currentColor;
+}
+
+.hw-pen path {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1 2;
+    stroke-dashoffset: 1;
+    animation-name: hw-write;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hw-write {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+#work-intro .work-lead {
+    margin-top: 18px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: clamp(19px, 1.8vw, 24px);
+    line-height: 1.55;
+    letter-spacing: -0.03em;
+    color: #30383e;
+}
+
+.work-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-top: 28px;
+}
+
+.work-stats div {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.work-stats dt {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 13px;
+    color: #6b7176;
+}
+
+.work-stats dd {
+    font-family: "Urbanist", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: #30383e;
+}
+
+.work-stats dd.accent {
+    color: #d94a4a;
+}
+
+/* ----- 분야 탭 : 가운데 모인 작은 기기들 + 짧은 선반 ----- */
+#work-tabs {
+    width: fit-content;
+    max-width: calc(100% - 40px);
+    margin: 48px auto 0;
+    padding: 0 28px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: clamp(20px, 3.4vw, 48px);
+    border-bottom: 2px solid #d8dadd;   /* 기기들이 올라선 선반 */
+}
+
+.tab-btn {
+    flex: 0 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 2px 16px;
+    border: none;
+    background: none;
+    font: inherit;
+    color: #30383e;
+    cursor: pointer;
+    opacity: 0.45;
+    transition: opacity 0.3s ease;
+}
+
+.tab-btn:hover,
+.tab-btn:focus-visible,
+.tab-btn.active {
+    opacity: 1;
+}
+
+/* 선택된 탭: 선반 위 작은 빨간 점 */
+.tab-btn::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 8px;
+    height: 8px;
+    margin-left: -4px;
+    border-radius: 50%;
+    background: transparent;
+    transition: background 0.3s ease, transform 0.3s ease;
+    transform: scale(0.4);
+}
+
+.tab-btn.active::after {
+    background: #d94a4a;
+    transform: scale(1);
+}
+
+.tab-img {
+    position: relative;
+    height: 88px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 마우스를 올리면 기기가 살짝 들썩 */
+.tab-btn:hover .tab-img {
+    transform: translateY(-4px) rotate(-2deg);
+}
+
+.tab-btn.active .tab-img {
+    transform: translateY(-4px);
+}
+
+/* 기기 아래 그림자 */
+.tab-img::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(48, 56, 62, 0.18), transparent);
+    z-index: -1;
+}
+
+.tab-img img {
+    width: auto;
+    max-width: none;
+}
+
+/* 기기마다 실제 크기감이 느껴지도록 높이를 다르게 */
+.tab-all .tab-img img { height: 60px; }
+.tab-web .tab-img img { height: 66px; }
+.tab-kiosk .tab-img img { height: 64px; }
+.tab-editorial .tab-img img { height: 50px; }
+.tab-page .tab-img img { height: 78px; }
+
+.tab-en {
+    margin-top: 8px;
+    font-family: "Urbanist", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    transition: color 0.3s ease;
+}
+
+.tab-btn.active .tab-en {
+    color: #d94a4a;
+}
+
+.tab-ko {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 11px;
+    color: #6b7176;
+    white-space: nowrap;
+}
+
+.tab-ko em {
+    font-style: normal;
+}
+
+/* ----- 작업 카드 ----- */
+#work-list {
+    max-width: 1240px;
+    margin: 48px auto 0;
+    padding: 0 clamp(20px, 4vw, 48px) 120px;
+}
+
+.work-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #d8dadd;
+}
+
+.work-head h3 {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #30383e;
+}
+
+#work-count {
+    font-family: "Urbanist", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #d94a4a;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px 20px;
+}
+
+.work-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.work-card.in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.work-card.is-off {
+    display: none;
+}
+
+.work-card:hover,
+.work-card:focus-visible {
+    box-shadow: 0 18px 30px rgba(48, 56, 62, 0.10);
+    outline: none;
+}
+
+.work-thumb {
+    position: relative;
+    aspect-ratio: 300 / 220;   /* 기존 썸네일 비율 그대로 */
+    background: #f5f5f5;
+    overflow: hidden;
+}
+
+.work-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.work-card:hover .work-thumb img {
+    transform: scale(1.05);
+}
+
+.work-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 5px 9px;
+    border-radius: 999px;
+    border: 1px solid #30383e;
+    background: #30383e;
+    color: #fff;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.work-badge.own {
+    background: #fff;
+    color: #30383e;
+}
+
+.work-veil {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(217, 74, 74, 0.88);
+    color: #fff;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.work-card:hover .work-veil,
+.work-card:focus-visible .work-veil {
+    opacity: 1;
+}
+
+.work-info {
+    padding: 14px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-family: 'Pretendard', sans-serif;
+    color: #30383e;
+}
+
+.work-cat {
+    font-size: 12px;
+    font-weight: 500;
+    color: #6b7176;
+}
+
+.work-info h4 {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+    word-break: keep-all;
+}
+
+.work-info p {
+    font-size: 14px;
+    line-height: 1.45;
+    color: #4a5157;
+    word-break: keep-all;
+}
+
+.work-year {
+    margin-top: 4px;
+    font-family: "Urbanist", sans-serif;
+    font-size: 13px;
+    color: #8a8f94;
+}
+
+.work-empty {
+    padding: 56px 20px;
+    border-radius: 20px;
+    background: #fff;
+    text-align: center;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 15px;
+    color: #4a5157;
+}
+
+/* ----- 상세 창 (맥 창 스타일) ----- */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(16px, 4vw, 48px);
+    background: rgba(48, 56, 62, 0.45);
+}
+
+.modal.is-min {
+    background: transparent;
+    pointer-events: none;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.modal-contents {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: min(1040px, 100%);
+    height: min(86vh, 900px);
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: width 0.3s ease, height 0.3s ease;
+    pointer-events: auto;
+}
+
+.modal-contents.expanded {
+    width: 100%;
+    height: 100%;
+}
+
+.modal-contents.minimized {
+    width: 360px;
+    height: auto;
+}
+
+.modal-contents.minimized .modal-body {
+    display: none;
+}
+
+.modal-header {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-header .mac-buttons {
+    flex: 0 0 auto;
+    margin-left: 0;
+}
+
+.modal-title {
+    margin-left: 0;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    color: #4a5157;
+}
+
+.modal-body {
+    flex: 1 1 auto;
+    height: auto;
+    overflow-y: auto;
+    padding: 0 clamp(20px, 4vw, 48px) 48px;
+}
+
+/* ----- 최소화한 창 모음 (오른쪽 아래, 위로 쌓임) ----- */
+#mini-dock {
+    position: fixed;
+    right: 120px;          /* 맨 위로 버튼과 겹치지 않게 */
+    bottom: 40px;
+    z-index: 998;
+    display: flex;
+    flex-direction: column-reverse;   /* 먼저 내린 창이 맨 아래, 새 창이 위로 쌓임 */
+    align-items: flex-end;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.mini-win {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 340px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: #f7f7f7;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.18);
+    pointer-events: auto;
+    animation: mini-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.mini-win .mac-buttons {
+    flex: 0 0 auto;
+    margin-left: 0;
+}
+
+.mini-win button.btn {
+    border: none;
+    padding: 0;
+}
+
+.mini-win .btn.yellow.disabled {
+    background-color: #ccc;
+}
+
+.mini-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    border: none;
+    background: none;
+    padding: 0;
+    text-align: left;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 15px;
+    color: #30383e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.mini-title:hover {
+    color: #d94a4a;
+}
+
+@keyframes mini-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+}
+
+/* 웹 프로젝트 상세: 부제와 사이트 링크 */
+.content-inner h2 .sub {
+    font-size: 17px;
+    font-weight: 500;
+    color: #6b7176;
+}
+
+.content-inner .site-link {
+    margin: 16px 0 24px 5%;
+}
+
+.content-inner .site-link a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 22px;
+    border-radius: 999px;
+    background: #30383e;
+    color: #fff;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: background 0.3s ease;
+}
+
+.content-inner .site-link a:hover {
+    background: #d94a4a;
+}
+
+.content-inner .site-link.soon {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    color: #8a8f94;
+}
+
+/* 마우스 커서 효과(VIEW)가 켜진 PC에서는 카드 위 글씨를 빼고 은은한 색만 */
+html.has-cursor .work-veil {
+    font-size: 0;
+    background: rgba(217, 74, 74, 0.18);
+}
+
+/* ----- 노트북 화면 ----- */
+
+/* ----- 태블릿 ----- */
+@media (min-width: 481px) and (max-width: 800px) {
+    #work-intro { margin-top: 180px; }
+    .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ----- 움직임 줄이기 ----- */
+@media (prefers-reduced-motion: reduce) {
+    .mini-win { animation: none; }
+    .hw-pen path { animation: none; stroke-dashoffset: 0; }
+    .work-card { opacity: 1; transform: none; transition: none; }
+    .tab-btn, .tab-img, .work-thumb img { transition: none; }
+}
+
+
+/* ----- 푸터 ----- */
+.footer {
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    background-color: #d94a4a;
+    font-family: "Urbanist", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #f8f5f2;
+    clear: both;
+}
+
+
+/* =====================================================
+   상세 창 크기
+   - 처음: 세로로 긴 창, 상세 이미지가 창 폭에 꽉 차게 (좌우 여백 없음)
+   - 초록 버튼(확대): 화면 가득, 이미지는 가운데에 두고 좌우 여백
+   - 창 왼쪽·오른쪽 끝을 잡고 끌면 폭 조절
+   ===================================================== */
+.modal-contents {
+    width: min(760px, calc(100vw - 32px));
+    height: min(92vh, 1100px);
+}
+
+.modal-contents.expanded {
+    width: 100%;
+    height: 100%;
+}
+
+.modal-contents.resizing {
+    transition: none;
+    user-select: none;
+}
+
+/* 이미지는 좌우 여백 없이 꽉 차게 */
+.modal-body {
+    padding: 0 0 48px;
+}
+
+.content-inner img {
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+.content-inner p {
+    margin: 0;
+}
+
+.content-inner h2 {
+    margin: 32px 28px 20px;
+}
+
+.content-inner .site-link {
+    margin: 0 28px 24px;
+}
+
+.content-inner ul {
+    margin: 40px 28px;
+}
+
+/* 확대했을 때: 내용은 가운데, 좌우 여백 */
+.modal-contents.expanded .content-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* 좌우 끌기 손잡이 */
+.resize-handle {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    width: 14px;
+    cursor: ew-resize;
+    z-index: 5;
+}
+
+.resize-handle.left { left: 0; }
+.resize-handle.right { right: 0; }
+
+/* 마우스를 올리면 가운데에 작은 손잡이 표시 */
+.resize-handle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    width: 4px;
+    height: 48px;
+    margin-top: -24px;
+    border-radius: 2px;
+    background: rgba(48, 56, 62, 0.25);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.resize-handle:hover::after,
+.modal-contents.resizing .resize-handle::after {
+    opacity: 1;
+}
+
+.modal-contents.expanded .resize-handle,
+.modal-contents.minimized .resize-handle {
+    display: none;
+}

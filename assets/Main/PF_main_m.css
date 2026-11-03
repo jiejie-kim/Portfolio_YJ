@@ -1,0 +1,749 @@
+@media (min-width: 320px) and (max-width: 480px) {
+
+	/* 화면 밖으로 삐져나온 장식 이미지 때문에 생기는 오른쪽 여백(가로 스크롤) 막기 */
+	html,
+	body {
+		overflow-x: hidden;
+	}
+
+	#wrap {
+		overflow-x: clip;
+	}
+
+	/* ----- 상단: 로고 + 메뉴 (화면 위에 고정) ----- */
+	h1 {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 108px;
+		margin: 0;
+		padding-top: 14px;
+		text-align: center;
+		background-color: rgba(240, 240, 240, 0.94);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		z-index: 101;
+	}
+
+	h1 a {
+		font-size: 20px;
+	}
+
+	header {
+		position: fixed;
+		top: 52px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: calc(100% - 32px);
+		max-width: 420px;
+		margin: 0;
+		z-index: 102;
+	}
+
+	/* 메뉴 4개를 같은 폭으로 나눠서 가운데 정렬 */
+	nav ul {
+		width: 100%;
+		height: 44px;
+		padding: 0 8px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0;
+	}
+
+	nav li {
+		flex: 1;
+		display: flex;
+		justify-content: center;
+	}
+
+	.flip-vert-inner {
+		width: 100%;
+		height: 2em;
+	}
+
+	.flip-vert-front,
+	.flip-vert-back {
+		font-size: 13px;
+		letter-spacing: 0.02em;
+	}
+
+	#up_btn {
+		bottom: 30px;
+	}
+
+	#banner {
+		height: 180px;
+		margin-top: 200px;
+	}
+
+	#banner h2 {
+		font-family: "learning-curve", sans-serif;
+		font-style: italic;
+		font-weight: 500;
+		text-align: center;
+		margin-top: 5%;
+		font-size: 100px;
+		color: #30383e;
+		letter-spacing: 2px;
+		font-size: 28px;
+	}
+
+	#banner h2 span:first-of-type {
+		font-size: 40px;
+	}
+
+	.scroll-indicator {
+		margin-bottom: 250px;
+	}
+
+	.mouse {
+		width: 25px;
+		height: 35px;
+		border: 1px solid gray;
+		position: relative;
+	}
+
+	.arrow {
+		font-size: 20px;
+		color: gray;
+	}
+
+	/* ----- About ----- */
+	.about_bg {
+		width: 100%;
+		margin: 0 auto;
+		margin-top: -50px;
+		background-color: #d94a4a;
+		position: relative;
+		padding-bottom: 80px;
+		border: 1px solid transparent;
+	}
+
+	#about_box {
+		margin-top: 100px;
+		width: 100%;
+		position: absolute;
+		display: block;
+	}
+
+	#about_box1 {
+		left: 88%;
+		/* margin-left: -200px; */
+		top: 5px;
+		transform: rotate(0);
+		transition: all 1s;
+	}
+
+	#about_box1.ani {
+		margin-left: -290px;
+		transform: rotate(-10deg);
+	}
+
+	#about_box1 img {
+		width: 130px;
+	}
+
+	#about_box2 {
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	#about_box2 img {
+		width: 180px;
+	}
+
+	#about_box3 {
+		width: 120px;
+		top: 5px;
+		margin-left: -30px;
+	}
+
+	#about_box3.ani {
+		margin-left: 10px;
+		transform: rotate(10deg);
+	}
+
+	#about_box3 img {
+		width: 130px;
+	}
+
+	.about_bg h3 {
+		margin-top: 110px;
+		font-size: 28px;
+	}
+
+	.about_bg h4 {
+		width: 94%;
+		font-size: 12px;
+		color: #ececec;
+		font-weight: 400;
+		text-align: center;
+		margin: 0 auto;
+		padding: 18px;
+		line-height: 16px;
+	}
+
+	.about_bg h4 span {
+		color: #ecacac;
+		font-weight: 400;
+		font-size: 12px;
+	}
+
+	.about_me {
+		width: 90%;
+		display: block;
+		margin-bottom: 5%;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+
+	#about_img {
+		width: 60%;
+		margin-left: 20%;
+		align-items: center;
+	}
+
+	#about_img img {
+		width: 100%;
+	}
+
+	#about_txt {
+		width: 98%;
+		margin: 0 auto;
+	}
+
+	/* #about_txt dt {
+		font-family: "Urbanist", sans-serif;
+		font-style: italic;
+		font-size: 30px;
+		font-weight: 600;
+		margin-bottom: 10px;
+		color: #d94a4a;
+		opacity: 0;
+		transform: translateY(20px);
+		transition: all 1.0s ease;
+		margin-left: 2%;
+		margin-top: 10px;
+	} */
+
+	#about_txt dt {
+		font-family: 'Pretendard';
+		font-size: 20px;
+		line-height: 30px;
+		letter-spacing: normal;
+		margin-bottom: 8%;
+		color: #555555;
+	}
+
+	#about_txt dt b {
+		font-size: 28px;
+		color: #d94a4a;
+		font-weight: 500;
+	}
+
+	#about_txt dd {
+		font-family: 'Pretendard';
+		line-height: 18px;
+		font-size: 14px;
+		color: gray;
+		width: 100%;
+		margin-bottom: 10%;
+		font-weight: 300;
+	}
+
+	#about_txt dd:first-of-type {
+		width: 90%;
+		font-size: 12px;
+		font-weight: 500;
+	}
+
+	#about_txt dd:last-of-type {
+		font-size: 12px;
+		line-height: 20px;
+	}
+
+	/* ----- 스토리/장점/취미 ----- */
+	#ssh {
+		width: 100%;
+		background-color: #fff;
+		border: 10px solid #d94a4a;
+		padding-bottom: 5%;
+	}
+
+	/*----스토리----*/
+	#ssh_group {
+		width: 100%;
+	}
+
+	#story h2 {
+		width: 80%;
+		font-family: "Urbanist", sans-serif;
+		font-style: italic;
+		font-size: 40px;
+		font-weight: 600;
+		color: #30383e;
+		margin: 0 auto;
+		text-align: center;
+		margin-bottom: 10px;
+	}
+
+	#story h3 {
+		width: 80%;
+		font-family: "Urbanist", sans-serif;
+		font-style: italic;
+		font-size: 18px;
+		font-weight: 300;
+		color: #30383e;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.timeline-bar {
+		margin: 0 auto;
+		z-index: 1;
+		margin-bottom: 5%;
+	}
+
+	.timeline-points {
+		width: 250px;
+		margin-left: -20%;
+		display: flex;
+		z-index: 2;
+	}
+
+	#timelinePoints .point img {
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	.story-card {
+		flex: 0 0 clamp(450px, 120px, 380px);
+		border-radius: 16px;
+		transition: transform 0.4s ease, background 0.3s ease, opacity 0.3s;
+	}
+
+	.story-card dl {
+		width: 50%;
+		margin-left: 20%;
+		color: rgb(168, 168, 168);
+	}
+	
+	.story-card dl dt {
+		font-size: 18px;
+		margin-top: 5%;
+		margin-bottom: 2%;
+	}
+	
+	.story-card dd {
+		font-size: 12px;
+		line-height: 20px;
+		color: #777;
+		margin-bottom: 2%;
+	}
+	
+	.story-card.active dl {
+		width: 60%;
+	}
+	
+	.story-card.active dl dt {
+		font-size: 20px;
+		font-weight: 500;
+		color: #30383e;
+	}
+	
+	.story-card.active dd {
+		font-size: 14px;
+		line-height: 28px;
+		color: #555;
+	}
+
+	/*----장점----*/
+	#strength { 
+		width: 94%;
+		margin: 0 auto;
+		margin-bottom: 10%;
+	}
+
+	#strength h2 {
+		width: 80%;
+		font-family: "Urbanist", sans-serif;
+		font-style: italic;
+		font-size: 40px;
+		font-weight: 600;
+		color: #30383e;
+		margin: 0 auto;
+		text-align: center;
+		padding-top: 3%;
+	}
+	
+	#strength h3 {
+		width: 80%;
+		font-family: "Urbanist", sans-serif;
+		font-style: italic;
+		font-size: 18px;
+		font-weight: 300;
+		color: #30383e;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	#card-grid {
+		width: 100%;
+		grid-template-columns: repeat(2, 1fr);
+		margin: 0 auto;
+	}
+
+	/* 각 카드 */
+	#card-grid li {
+		width: 120px;
+		height: 120px;
+		justify-items: center;
+		margin: 0 auto;
+		cursor: pointer;
+	}
+
+	#card-grid li:hover .flip-inner {
+		transform: rotateY(180deg);
+	}
+
+	.flip-front img,
+	.flip-back img {
+		width: 100%;
+		/* object-fit: cover; */
+	}
+
+	.flip-back {
+		transform: rotateY(180deg);
+	}
+
+	.tab-content {
+		display: none;
+		animation: fadein 0.3s ease-in-out;
+	}
+
+	.tab-content.active {
+		display: block;
+	}
+
+
+	/* 취미 */
+
+	#hobby h2 {
+		width: 80%;
+		font-family: "Urbanist", sans-serif;
+		font-style: italic;
+		font-size: 40px;
+		font-weight: 600;
+		color: #30383e;
+		margin: 0 auto;
+		text-align: center;
+		padding-top: 3%;
+	}
+	
+	#hobby h3 { 
+		font-family: "Urbanist", sans-serif;
+		font-style: italic;
+		font-size: 18px;
+		font-weight: 300;
+		color: #30383e;
+		margin: 0 auto;
+		text-align: center;
+	}
+	/* ----- 취미: 옆으로 넘겨보는 카드 (사진은 잘리거나 확대되지 않고 원본 비율 그대로) ----- */
+	#hobby .hobby_menu {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 12px;
+		width: 100%;
+		height: auto;
+		margin: 24px 0 0;
+		padding: 8px 13vw 12px;
+		box-sizing: border-box;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	#hobby .hobby_menu::-webkit-scrollbar {
+		display: none;
+	}
+
+	#hobby .hobby_box,
+	#hobby .hobby_box:hover {
+		flex: 0 0 auto;
+		margin: 0;
+		overflow: visible;
+		line-height: normal;
+		border-radius: 0;
+		position: relative;
+		scroll-snap-align: center;
+		opacity: 0.5;
+		transform: scale(0.94);
+		transition: opacity 0.35s ease, transform 0.35s ease;
+	}
+
+	/* 가운데 온 카드만 선명하게 */
+	#hobby .hobby_box.is-current {
+		opacity: 1;
+		transform: none;
+	}
+
+	#hobby .hobby_box > a {
+		display: none;
+	}
+
+	#hobby .hobby_box > img,
+	#hobby .hobby_box:hover > img {
+		display: block;
+		/* 원본 비율 그대로 화면 안에 들어오게 (잘림·확대 없음) */
+		width: auto;
+		height: auto;
+		max-width: 74vw;
+		max-height: 56vh;
+		margin: 0 auto;
+		border-radius: 16px;
+		box-shadow: none;
+	}
+
+	#hobby .hobby_box > span {
+		position: static;
+		display: block;
+		height: auto;
+		margin-top: 12px;
+		font-family: "learning-curve", sans-serif;
+		font-size: 24px;
+		line-height: 1.2;
+		text-align: center;
+		color: #30383e;
+	}
+
+	/* 몇 번째 사진인지 보여주는 점 */
+	.hobby-dots {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 6px;
+		margin: 14px 0 0;
+	}
+
+	.hobby-dots button {
+		width: 7px;
+		height: 7px;
+		padding: 0;
+		border: none;
+		border-radius: 4px;
+		background: #d3d5d8;
+		cursor: pointer;
+		transition: width 0.3s ease, background 0.3s ease;
+	}
+
+	.hobby-dots button.on {
+		width: 22px;
+		background: #d94a4a;
+	}
+
+	.hobby-hint {
+		display: block;
+		margin-top: 8px;
+		font-size: 12px;
+		text-align: center;
+		color: #8a8f94;
+	}
+
+	/* ----- 스킬 (모바일: 이미지 왼쪽 + 글씨 오른쪽, 한 줄씩) ----- */
+	#skill_group {
+		width: 92%;
+		margin: 0 auto;
+	}
+
+	#skill_warp h2 {
+		width: 100%;
+		font-size: 34px;
+		margin: 40px 0 24px;
+		text-align: center;
+	}
+
+	#skill_warp #web_card,
+	#skill_warp #mobile_card,
+	#skill_warp #editorial_card,
+	#skill_warp #kiosk_card {
+		float: none;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		width: 100%;
+		height: auto;
+		min-height: 150px;
+		margin: 0 0 12px;
+		padding: 20px;
+		box-sizing: border-box;
+	}
+
+	/* 이미지 칸 */
+	#skill_warp #skill_group .skill_img,
+	#skill_warp #skill_group .card:hover .skill_img {
+		position: static;
+		order: -1;
+		flex: 0 0 38%;
+		width: 38%;
+		height: 110px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transform: none;
+		top: auto;
+	}
+
+	#skill_warp #skill_group .skill_img img {
+		position: static;
+		transform: none;
+		width: auto;
+		max-width: 100%;
+		max-height: 110px;
+		margin: 0;
+		padding: 0;
+	}
+
+	/* 글씨 칸 */
+	#skill_warp #skill_group .skill_txt,
+	#skill_warp #skill_group .card:hover .skill_txt,
+	#skill_warp #skill_group #editorial_card:hover .skill_txt {
+		position: static;
+		flex: 1;
+		width: auto;
+		height: auto;
+		margin: 0;
+		text-align: left;
+		transform: none;
+	}
+
+	#skill_warp #skill_group .skill_txt h3,
+	#skill_warp #skill_group #editorial_card .skill_txt h3 {
+		font-size: 22px;
+		line-height: 1.15;
+		margin: 0 0 4px;
+	}
+
+	#skill_warp #skill_group .skill_txt h4 {
+		font-size: 13px;
+		line-height: 1.4;
+	}
+
+	/* Show 버튼: 모바일은 마우스 hover 가 없으니 항상 보이게 */
+	#skill_warp #skill_group #web_card.card .skill_txt a,
+	#skill_warp #skill_group #mobile_card.card .skill_txt a,
+	#skill_warp #skill_group #editorial_card.card .skill_txt a,
+	#skill_warp #skill_group #kiosk_card.card .skill_txt a {
+		opacity: 1;
+		transform: none;
+		margin-top: 12px;
+		padding: 8px 16px;
+		background-color: #30383e;
+		color: #fff;
+		font-size: 13px;
+	}
+
+	/* 툴 아이콘 바 */
+	#dock {
+		width: 100%;
+		height: auto;
+		padding: 12px;
+		gap: 6px;
+		margin: 8px auto 60px;
+		box-sizing: border-box;
+	}
+
+	.dock-icon {
+		width: 8%;
+		border-radius: 6px;
+	}
+
+	/* ----- 프로필 (모바일: 한 줄에 한 섹션씩) ----- */
+	#profile_bg {
+		width: 92%;
+		padding: 36px 22px 40px;
+		box-sizing: border-box;
+	}
+
+	#p-title,
+	#profile_bg #p-title {
+		padding: 0;
+		margin: 0;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+
+	#profile_bg #p-title b span {
+		font-size: 32px;
+	}
+
+	#profile_bg #p-title .s {
+		display: block;
+		margin: 10px 0 0;
+		font-size: 16px;
+	}
+
+	#profile_inner {
+		flex-direction: column;
+		gap: 32px;
+		width: 100%;
+		margin: 40px 0 0;
+	}
+
+	#profile_inner section:nth-child(n) {
+		width: 100%;
+	}
+
+	.profile h3 {
+		font-size: 18px;
+		font-weight: 500;
+		margin-bottom: 10px;
+	}
+
+	.profile ul {
+		width: 100%;
+	}
+
+	.profile ul li {
+		font-size: 14px;
+		line-height: 1.7;
+	}
+
+	/* 경력: 설명(괄호)은 아랫줄로 내려서 읽기 쉽게 */
+	#profile_inner section:nth-child(3) ul li {
+		margin-bottom: 10px;
+	}
+
+	#profile_inner section:nth-child(3) ul li span {
+		display: block;
+		font-size: 12px;
+		line-height: 1.5;
+	}
+
+	.contact {
+		margin: 100px -20px;
+	}
+
+	.contact img {
+		width: 240px;
+	}
+
+	.contact img:hover {
+		transform: scale(1.3);
+	}
+
+	.footer {
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		background-color: #d94a4a;
+		font-family: "Urbanist", sans-serif;
+		font-size: 14px;
+		text-align: center;
+		color: #f8f5f2;
+	}
+}

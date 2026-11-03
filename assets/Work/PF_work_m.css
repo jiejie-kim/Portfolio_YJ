@@ -1,0 +1,279 @@
+@media (min-width: 320px) and (max-width: 480px) {
+
+	html,
+	body {
+		overflow-x: hidden;
+	}
+
+	/* ----- 상단: 로고 + 메뉴 (화면 위에 고정) ----- */
+	h1 {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 108px;
+		margin: 0;
+		padding-top: 14px;
+		text-align: center;
+		background-color: rgba(240, 240, 240, 0.94);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		z-index: 101;
+	}
+
+	h1 a {
+		font-size: 20px;
+	}
+
+	header {
+		position: fixed;
+		top: 52px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: calc(100% - 28px);
+		max-width: 420px;
+		margin: 0;
+		z-index: 102;
+	}
+
+	nav ul {
+		width: 100%;
+		height: 44px;
+		padding: 0 6px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0;
+	}
+
+	nav li {
+		flex: 1;
+		display: flex;
+		justify-content: center;
+	}
+
+	.flip-vert-inner {
+		width: 100%;
+		height: 2em;
+	}
+
+	.flip-vert-front,
+	.flip-vert-back {
+		font-size: 12px;
+		letter-spacing: 0.01em;
+	}
+
+	#up_btn {
+		right: 20px;
+		bottom: 24px;
+	}
+
+	/* ----- 인트로 ----- */
+	#work-intro {
+		margin-top: 140px;
+		padding: 0 18px;
+	}
+
+	.hw-svg {
+		width: 88vw;
+	}
+
+	/* ----- 분야 탭: 화면 폭에 맞게 작게 ----- */
+	#work-tabs {
+		width: auto;
+		max-width: none;
+		margin: 24px 14px 0;
+		padding: 0 6px;
+		gap: 0;
+		justify-content: space-between;
+	}
+
+	.tab-btn {
+		flex: 1 1 0;
+		min-width: 0;
+		padding: 4px 0 12px;
+	}
+
+	.tab-img {
+		height: 52px;
+	}
+
+	.tab-all .tab-img img { height: 30px; }
+	.tab-web .tab-img img { height: 36px; }
+	.tab-kiosk .tab-img img { height: 34px; }
+	.tab-editorial .tab-img img { height: 28px; }
+	.tab-page .tab-img img { height: 44px; }
+
+	.tab-en {
+		margin-top: 4px;
+		font-size: 9px;
+		letter-spacing: 0.03em;
+		white-space: nowrap;
+	}
+
+	/* 모바일은 한국어 분야명 대신 개수만 */
+	.tab-ko {
+		font-size: 0;
+	}
+
+	.tab-ko em {
+		font-family: "Urbanist", sans-serif;
+		font-size: 10px;
+	}
+
+	/* ----- 작업 카드: 2열 ----- */
+	#work-list {
+		margin-top: 24px;
+		padding: 0 14px 72px;
+	}
+
+	.work-head {
+		padding-bottom: 10px;
+		margin-bottom: 14px;
+	}
+
+	.work-head h3 {
+		font-size: 18px;
+	}
+
+	.work-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 14px 10px;
+	}
+
+	.work-card {
+		border-radius: 14px;
+	}
+
+	/* 썸네일 비율은 PC와 같음 (300 x 220) */
+
+	.work-badge {
+		top: 8px;
+		left: 8px;
+		padding: 3px 7px;
+		font-size: 10px;
+	}
+
+	/* 모바일에서는 소속을 빼고 '실무 / 개인'만 */
+	.work-badge .org {
+		display: none;
+	}
+
+	.work-veil {
+		display: none;
+	}
+
+	.work-info {
+		padding: 10px 12px 12px;
+	}
+
+	.work-cat {
+		font-size: 10px;
+	}
+
+	.work-info h4 {
+		font-size: 14px;
+	}
+
+	.work-info p {
+		font-size: 12px;
+	}
+
+	.work-year {
+		font-size: 11px;
+	}
+
+	/* ----- 상세 창: 화면 전체 ----- */
+	.modal {
+		padding: 0;
+	}
+
+	.modal-contents,
+	.modal-contents.expanded {
+		width: 100%;
+		height: 100%;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.modal-contents.minimized {
+		width: 100%;
+		height: auto;
+	}
+
+	.mac-buttons .btn {
+		width: 14px;
+		height: 14px;
+	}
+
+	.modal-title {
+		font-size: 13px;
+	}
+
+	.modal-body {
+		padding: 0 0 40px;
+	}
+
+	.resize-handle {
+		display: none;
+	}
+
+	.content-inner h2 {
+		margin: 24px 16px 16px;
+		font-size: 20px;
+		line-height: 1.4;
+	}
+
+	.content-inner h2 .sub {
+		font-size: 14px;
+	}
+
+	.content-inner .site-link {
+		margin: 0 16px 18px;
+	}
+
+	.content-inner ul {
+		margin: 24px 16px;
+		font-size: 13px;
+		line-height: 1.6;
+	}
+
+	.content-inner ul li {
+		margin-left: 0;
+		margin-bottom: 16px;
+	}
+
+	.content-inner ul b {
+		display: block;
+		width: 100%;
+		float: none;
+		margin-bottom: 4px;
+	}
+
+	.content-inner ul li span {
+		width: 100%;
+	}
+
+	/* 최소화한 창: 화면 아래 가로로 꽉 차게 */
+	#mini-dock {
+		left: 12px;
+		right: 12px;
+		bottom: 84px;
+		align-items: stretch;
+	}
+
+	.mini-win {
+		width: auto;
+		padding: 10px 14px;
+	}
+
+	.mini-title {
+		font-size: 14px;
+	}
+
+	.footer {
+		height: 50px;
+		line-height: 50px;
+		font-size: 14px;
+	}
+}

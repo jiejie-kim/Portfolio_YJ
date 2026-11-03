@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ujin's Portfolio_Contact</title>
+  <script src="assets/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="assets/Contact/PF_contact.js"></script>
+
+  <link rel="stylesheet" href="assets/Contact/PF_contact.css">
+  <link rel="stylesheet" href="assets/Contact/PF_contact_m.css">
+  <link rel="stylesheet" href="assets/common/effects.css">
+  <script src="assets/common/effects.js"></script>
+
+  <!--폰트/아이콘-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap, ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/lyj3ibg.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_" />
+
+</head>
+
+<body>
+
+  <div id="wrap">
+
+    <h1><a href="index.html">K-YJ</a></h1>
+    <header>
+      <nav>
+        <ul>
+          <li class="opacity">
+            <a href="PF_main.html" class="flip-vert-inner">
+              <span class="flip-vert-front">ABOUT</span>
+              <span class="flip-vert-back">소개</span>
+            </a>
+          </li>
+          <li class="opacity">
+            <a href="PF_work.html" class="flip-vert-inner">
+              <span class="flip-vert-front">WORK</span>
+              <span class="flip-vert-back">작업</span>
+            </a>
+          </li>
+          <li class="opacity">
+            <a href="PF_experience.html" class="flip-vert-inner">
+              <span class="flip-vert-front">EXPERIENCE</span>
+              <span class="flip-vert-back">경력</span>
+            </a>
+          </li>
+          <li>
+            <a href="PF_contact.html" class="flip-vert-inner">
+              <span class="flip-vert-front">CONTACT</span>
+              <span class="flip-vert-back">연락처</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- <p id="menu_btn"><img src="images/menu_btn.png" alt="메뉴버튼"></span></p> -->
+    <p id="up_btn"><img src="images/up_btn.png" alt="위로버튼"></span></p>
+
+    <div id="banner" class="hidden">
+      <h2>Let's Connect :D</h2>
+      <div id="p-txt">
+        <ul>
+          <li>김유진</li>
+          <li><a href="tel:01023321243" class="call-button">010-2332-1243<span class="material-symbols-outlined">
+                call_made
+              </span></a></li>
+          <li><a href="mailto:kimmyoujin0@gmail.com?subject=포트폴리오 문의&body=안녕하세요! 포트폴리오 잘 봤습니다."
+              class="mail-button">kimmyoujin0@gmail.com<span class="material-symbols-outlined">
+                call_made
+              </span></a></li>
+        </ul>
+      </div>
+    </div>
+
+
+
+    <div id="red-bg">
+      <!-- 빨간 띠 위에 앉아 있는 사진 : 빨간 띠 윗선에 엉덩이가 걸치도록 고정 -->
+      <div class="contact-inner">
+        <p id="m-img"><img src="images/contact/m.png" alt="노트북을 들고 앉아 있는 김유진"></p>
+
+      <div id="email-size" class="hidden delay">
+
+        <div id="left-text">
+          <p>구직중이에요!<br>
+            상세페이지, 웹배너, UX&amp;UI 디자인, 웹퍼블리셔, 프론트엔드개발 모두 가능합니다!<br>
+            전화, 문자, 이메일로 편하게 연락주세요 ;)
+          </p>
+          <!-- <a href="images/contact/K-YJ_Resume.pdf" id="download-btn" download>📄 이력서 다운로드</a> -->
+          <p id="download-btn"><a href="https://drive.google.com/file/d/FILE_ID/view" target="_blank">📄 이력서 보기 (PDF)</a></p>
+        </div>
+
+
+        <form id="contact-form">
+          <ul>
+            <li>
+              <h3>Name</h3><input type="text" name="user_name" placeholder="" required />
+            </li>
+            <li>
+              <h3>E-Mail</h3><input type="email" name="user_email" placeholder="" required />
+            </li>
+            <li>
+              <h3>Message</h3><textarea name="message" placeholder="" required></textarea>
+            </li>
+          </ul>
+          <button type="submit">보내기</button>
+        </form>
+
+        <div id="status"></div>
+
+
+      </div>
+      </div>
+
+    </div>
+
+    <div class="footer"></div>
+
+
+
+
+  </div>
+
+
+
+
+</body>
+
+</html>
