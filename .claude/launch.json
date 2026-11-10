@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "portfolio", "runtimeExecutable": "bash", "runtimeArgs": ["-c", "cd /tmp && exec python3 -m http.server 8765 --directory /private/tmp/claude-501/-Users-youjinkim-Documents-GitHub-Portfolio-YJ/f5bf707a-4e3f-45bb-9b83-370f084f2d67/scratchpad/site"], "port": 8765 }
+  ]
+}
